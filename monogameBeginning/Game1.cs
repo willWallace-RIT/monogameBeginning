@@ -66,7 +66,18 @@ namespace monogameBeginning
                 Exit();
 
             // TODO: Add your update logic here
-
+            float smallValue = 0.1f;
+            position.X += smallValue;
+            position.Y += smallValue;
+            if (position.X > GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width)
+            {
+                position.X = 200;
+            }
+            if (position.Y > GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height)
+            {
+                position.Y = 100;
+            }
+            
             base.Update(gameTime);
         }
 
@@ -78,7 +89,9 @@ namespace monogameBeginning
         {
             GraphicsDevice.Clear(Color.Aquamarine);
             spriteBatch.Begin();
-            spriteBatch
+            spriteBatch.Draw(texture,position,Color.White);
+            spriteBatch.End();
+            
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
